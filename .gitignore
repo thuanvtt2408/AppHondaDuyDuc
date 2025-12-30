@@ -1,0 +1,67 @@
+####################################
+# Visual Studio / .NET
+####################################
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio workspace
+.vs/
+
+# Build results
+bin/
+obj/
+
+# Rider / VSCode
+.idea/
+.vscode/
+
+####################################
+# .NET Core
+####################################
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+####################################
+# NuGet
+####################################
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+####################################
+# Logs
+####################################
+*.log
+
+####################################
+# OS generated files
+####################################
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+####################################
+# macOS
+####################################
+.DS_Store
+
+####################################
+# Database / local config
+####################################
+*.mdf
+*.ldf
+*.sqlite
+*.db
+
+####################################
+# Publish output
+####################################
+publish/
