@@ -9,11 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Backend\DTO\" />
     <Folder Include="Utils\" />
-    <Folder Include="Views\Stock\" />
-    <Folder Include="Views\Order\" />
   </ItemGroup>
 
   <ItemGroup>

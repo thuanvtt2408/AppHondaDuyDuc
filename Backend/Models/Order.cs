@@ -10,9 +10,9 @@ namespace AppHondaDuyDuc.Backend.Models
     {
         public int Id { get; set; }
         public int CustomerId { get; set; }
+        public string CustomerName { get; set; } // JOIN để hiển thị
         public DateTime OrderDate { get; set; }
         public string Description { get; set; }
-
         public decimal TotalAmount { get; set; }
         public decimal PaidAmount { get; set; }
         public decimal DebtAmount { get; set; }

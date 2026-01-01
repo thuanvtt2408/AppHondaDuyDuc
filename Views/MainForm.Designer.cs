@@ -2,37 +2,30 @@
 {
     partial class MainForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.GroupBox gbMenu;
+        private System.Windows.Forms.Button btnCustomer;
+        private System.Windows.Forms.Panel panel1;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
             contextMenuStrip1 = new ContextMenuStrip(components);
             gbMenu = new GroupBox();
-            button1 = new Button();
+            btnOrder = new Button();
+            btnCustomer = new Button();
             panel1 = new Panel();
+            btnKhoPhuTung = new Button();
             gbMenu.SuspendLayout();
             SuspendLayout();
             // 
@@ -43,48 +36,74 @@
             // 
             // gbMenu
             // 
-            gbMenu.Controls.Add(button1);
-            gbMenu.Location = new Point(12, 6);
+            gbMenu.Controls.Add(btnKhoPhuTung);
+            gbMenu.Controls.Add(btnOrder);
+            gbMenu.Controls.Add(btnCustomer);
+            gbMenu.Dock = DockStyle.Left;
+            gbMenu.Location = new Point(0, 0);
             gbMenu.Name = "gbMenu";
-            gbMenu.Size = new Size(133, 432);
-            gbMenu.TabIndex = 2;
+            gbMenu.Size = new Size(180, 450);
+            gbMenu.TabIndex = 0;
             gbMenu.TabStop = false;
+            gbMenu.Text = "Menu";
             // 
-            // button1
+            // btnOrder
             // 
-            button1.Location = new Point(6, 15);
-            button1.Name = "button1";
-            button1.Size = new Size(121, 37);
-            button1.TabIndex = 3;
-            button1.Text = "Quản lý khách hàng";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnOrder.Dock = DockStyle.Top;
+            btnOrder.Location = new Point(3, 67);
+            btnOrder.Name = "btnOrder";
+            btnOrder.Size = new Size(174, 48);
+            btnOrder.TabIndex = 1;
+            btnOrder.Text = "Tạo đơn sửa xe";
+            btnOrder.UseVisualStyleBackColor = true;
+            btnOrder.Click += btnOrder_Click;
+            // 
+            // btnCustomer
+            // 
+            btnCustomer.Dock = DockStyle.Top;
+            btnCustomer.Location = new Point(3, 19);
+            btnCustomer.Name = "btnCustomer";
+            btnCustomer.Size = new Size(174, 48);
+            btnCustomer.TabIndex = 0;
+            btnCustomer.Text = "Quản lý khách hàng";
+            btnCustomer.UseVisualStyleBackColor = true;
+            btnCustomer.Click += button1_Click;
             // 
             // panel1
             // 
-            panel1.Location = new Point(151, 6);
+            panel1.Location = new Point(186, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(637, 432);
-            panel1.TabIndex = 3;
+            panel1.Size = new Size(575, 402);
+            panel1.TabIndex = 1;
+            panel1.Paint += panel1_Paint;
+            // 
+            // btnKhoPhuTung
+            // 
+            btnKhoPhuTung.Dock = DockStyle.Top;
+            btnKhoPhuTung.Location = new Point(3, 115);
+            btnKhoPhuTung.Name = "btnKhoPhuTung";
+            btnKhoPhuTung.Size = new Size(174, 48);
+            btnKhoPhuTung.TabIndex = 2;
+            btnKhoPhuTung.Text = "Kho phụ tùng";
+            btnKhoPhuTung.UseVisualStyleBackColor = true;
+            btnKhoPhuTung.Click += btnKhoPhuTung_Click;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
             Controls.Add(gbMenu);
             Name = "MainForm";
             Text = "MainForm";
+            Load += MainForm_Load;
             gbMenu.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ContextMenuStrip contextMenuStrip1;
-        private GroupBox gbMenu;
-        private Button button1;
-        private Panel panel1;
+        private Button btnOrder;
+        private Button btnKhoPhuTung;
     }
 }
