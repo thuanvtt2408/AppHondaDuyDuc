@@ -1,0 +1,74 @@
+CREATE TABLE vehicle_type (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(50) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO vehicle_type (id, name) VALUES
+(1, 'Xe tay ga'),
+(2, 'Xe số');
+
+CREATE TABLE customers (
+    id SERIAL PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    phone VARCHAR(20),
+    license_plate VARCHAR(20) UNIQUE NOT NULL,
+    vehicle_type INTEGER NOT NULL CHECK (vehicle_type IN (1,2)),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE orders (
+    id SERIAL PRIMARY KEY,
+    customer_id INTEGER NOT NULL REFERENCES customers(id),
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    description TEXT,
+    total_amount NUMERIC(12,2) DEFAULT 0,
+    paid_amount NUMERIC(12,2) DEFAULT 0,
+    debt_amount NUMERIC(12,2) DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE part_categories (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE parts (
+    id SERIAL PRIMARY KEY,
+    category_id INTEGER NOT NULL REFERENCES part_categories(id),
+    name VARCHAR(150) NOT NULL,
+    stock_quantity INTEGER DEFAULT 0,
+    import_price NUMERIC(12,2) DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE order_parts (
+    id SERIAL PRIMARY KEY,
+    order_id INTEGER NOT NULL REFERENCES orders(id),
+    part_id INTEGER NOT NULL REFERENCES parts(id),
+    quantity INTEGER NOT NULL,
+    unit_price NUMERIC(12,2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE stock_log (
+    id SERIAL PRIMARY KEY,
+    part_id INTEGER NOT NULL REFERENCES parts(id),
+    change_qty INTEGER NOT NULL,
+    reason TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+ALTER TABLE parts ADD COLUMN unit VARCHAR(20) DEFAULT 'cái';
+ALTER TABLE parts ADD COLUMN location VARCHAR(50);
+ALTER TABLE parts ADD COLUMN sale_price NUMERIC(12,2) DEFAULT 0;
+ALTER TABLE parts ADD COLUMN status VARCHAR(20) DEFAULT 'available';
+ALTER TABLE stock_log ADD COLUMN type VARCHAR(20) DEFAULT 'adjust';
+
